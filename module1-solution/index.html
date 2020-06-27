@@ -6,9 +6,10 @@
     <link rel="stylesheet" href="styles/bootstrap.min.css" />
     <link rel="stylesheet" href="styles/style.css" />
     <script src="angular.min.js"></script>
+    <script src="app.js"></script>
   </head>
   <body>
-    <div class="container">
+    <div class="container" ng-controller="LunchCheckController">
       <h1>Lunch Checker</h1>
 
       <div class="form-group">
@@ -17,13 +18,16 @@
           type="text"
           placeholder="list comma separated dishes you usually have for lunch"
           class="form-control"
+          ng-model="foodItems"
         />
       </div>
       <div class="form-group">
-        <button class="btn btn-default">Check If Too Much</button>
+        <button class="btn btn-default" ng-click="checkFoodItems()">
+          Check If Too Much
+        </button>
       </div>
       <div class="form-group message">
-        <!-- Your message can go here. -->
+        {{getMessage()}}
       </div>
     </div>
   </body>
